@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://bslpq6x44mjdt"]
+
+[ext_resource type="Script" path="res://Media/Scripts/menu.gd" id="1_s3tcv"]
+[ext_resource type="FontFile" uid="uid://ct6irqrb7stgv" path="res://Media/System/IntroDemoCond-BlackCAPS.otf" id="2_fmca2"]
+
+[sub_resource type="Theme" id="Theme_5c1tb"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 0.501961)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3tcv")
+
+[node name="Name" type="Node2D" parent="."]
+position = Vector2(576, 128)
+scale = Vector2(0.801623, 0.801623)
+
+[node name="Name" type="Label" parent="Name"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fmca2")
+theme_override_font_sizes/font_size = 175
+text = "Sweep"
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Node2D" parent="."]
+position = Vector2(440, 256)
+
+[node name="Play_B" type="Button" parent="Buttons"]
+offset_right = 515.0
+offset_bottom = 167.0
+scale = Vector2(0.528516, 0.528516)
+theme = SubResource("Theme_5c1tb")
+theme_override_fonts/font = ExtResource("2_fmca2")
+theme_override_font_sizes/font_size = 120
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings_B" type="Button" parent="Buttons"]
+offset_top = 96.0
+offset_right = 515.0
+offset_bottom = 263.0
+scale = Vector2(0.528516, 0.528516)
+theme = SubResource("Theme_5c1tb")
+theme_override_fonts/font = ExtResource("2_fmca2")
+theme_override_font_sizes/font_size = 120
+text = "Settings"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit_B" type="Button" parent="Buttons"]
+offset_top = 192.0
+offset_right = 515.0
+offset_bottom = 359.0
+scale = Vector2(0.528516, 0.528516)
+theme = SubResource("Theme_5c1tb")
+theme_override_fonts/font = ExtResource("2_fmca2")
+theme_override_font_sizes/font_size = 120
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Buttons/Play_B" to="." method="_on_play_b_pressed"]
+[connection signal="pressed" from="Buttons/Settings_B" to="." method="_on_settings_b_pressed"]
+[connection signal="pressed" from="Buttons/Quit_B" to="." method="_on_quit_b_pressed"]

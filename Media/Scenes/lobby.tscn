@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmienxb6qtvou"]
+
+[ext_resource type="Script" path="res://Media/Scripts/lobby.gd" id="1_0xd8g"]
+[ext_resource type="FontFile" uid="uid://ct6irqrb7stgv" path="res://Media/System/IntroDemoCond-BlackCAPS.otf" id="1_26u3x"]
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource("1_0xd8g")
+
+[node name="Header" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 88.0
+
+[node name="Back_B" type="Button" parent="Header"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 167.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "<"
+
+[node name="Money_L" type="Label" parent="Header"]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1569.0
+offset_bottom = 279.0
+scale = Vector2(0.315349, 0.315349)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 200
+text = "15288"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Header/Money_L"]
+z_index = -1
+layout_mode = 0
+offset_right = 609.0
+offset_bottom = 279.0
+color = Color(0.101961, 0.101961, 0.101961, 0.772549)
+
+[node name="Left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 128.0
+offset_right = 88.0
+offset_bottom = 440.0
+
+[node name="Shop_B" type="Button" parent="Left"]
+layout_mode = 0
+offset_right = 167.0
+offset_bottom = 167.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "S"
+
+[node name="Inventory_B" type="Button" parent="Left"]
+layout_mode = 0
+offset_top = 112.0
+offset_right = 167.0
+offset_bottom = 279.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "I"
+
+[node name="0_B" type="Button" parent="Left"]
+layout_mode = 0
+offset_top = 224.0
+offset_right = 167.0
+offset_bottom = 391.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "0"
+
+[connection signal="pressed" from="Header/Back_B" to="." method="_on_back_b_pressed"]
