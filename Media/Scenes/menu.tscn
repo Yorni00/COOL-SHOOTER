@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bslpq6x44mjdt"]
+[gd_scene load_steps=6 format=3 uid="uid://bslpq6x44mjdt"]
 
 [ext_resource type="Script" path="res://Media/Scripts/menu.gd" id="1_s3tcv"]
 [ext_resource type="FontFile" uid="uid://ct6irqrb7stgv" path="res://Media/System/IntroDemoCond-BlackCAPS.otf" id="2_fmca2"]
@@ -6,6 +6,14 @@
 [sub_resource type="Theme" id="Theme_5c1tb"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="Gradient" id="Gradient_t8130"]
+colors = PackedColorArray(0.0859838, 0.0859838, 0.0859837, 1, 0.775062, 0.775064, 0.775063, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bdu3e"]
+gradient = SubResource("Gradient_t8130")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -72,6 +80,12 @@ theme_override_fonts/font = ExtResource("2_fmca2")
 theme_override_font_sizes/font_size = 120
 text = "Quit"
 metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_bdu3e")
 
 [connection signal="pressed" from="Buttons/Play_B" to="." method="_on_play_b_pressed"]
 [connection signal="pressed" from="Buttons/Settings_B" to="." method="_on_settings_b_pressed"]

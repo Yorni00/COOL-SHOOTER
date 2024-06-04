@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmienxb6qtvou"]
+[gd_scene load_steps=5 format=3 uid="uid://dmienxb6qtvou"]
 
 [ext_resource type="Script" path="res://Media/Scripts/lobby.gd" id="1_0xd8g"]
 [ext_resource type="FontFile" uid="uid://ct6irqrb7stgv" path="res://Media/System/IntroDemoCond-BlackCAPS.otf" id="1_26u3x"]
+
+[sub_resource type="Gradient" id="Gradient_pxkh8"]
+colors = PackedColorArray(0.188371, 0.188371, 0.188371, 1, 0.82606, 0.82606, 0.82606, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aulsc"]
+gradient = SubResource("Gradient_pxkh8")
+fill_from = Vector2(0, 1)
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_0xd8g")
@@ -76,4 +83,80 @@ theme_override_fonts/font = ExtResource("1_26u3x")
 theme_override_font_sizes/font_size = 120
 text = "0"
 
+[node name="Footer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 560.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Play_B" type="Button" parent="Footer"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = -8.0
+offset_right = 932.0
+offset_bottom = 159.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "Play"
+
+[node name="Selector_B" type="Button" parent="Footer"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = -8.0
+offset_right = 887.0
+offset_bottom = 159.0
+scale = Vector2(0.528516, 0.528516)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 120
+text = "[]"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_aulsc")
+
+[node name="Selector" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 512.0
+
+[node name="Header" type="Control" parent="Selector"]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="Selector/Header"]
+layout_mode = 0
+offset_left = 184.0
+offset_right = 1069.0
+offset_bottom = 203.0
+scale = Vector2(0.315349, 0.315349)
+theme_override_fonts/font = ExtResource("1_26u3x")
+theme_override_font_sizes/font_size = 150
+text = "Select level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="ColorRect" parent="Selector/Header"]
+z_index = -1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 64.0
+color = Color(0.160784, 0.160784, 0.160784, 0.74902)
+
+[node name="General_Background" type="ColorRect" parent="Selector"]
+z_index = -1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 384.0
+color = Color(0.160784, 0.160784, 0.160784, 0.74902)
+
 [connection signal="pressed" from="Header/Back_B" to="." method="_on_back_b_pressed"]
+[connection signal="pressed" from="Footer/Selector_B" to="." method="_on_selector_b_pressed"]
